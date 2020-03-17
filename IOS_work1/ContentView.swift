@@ -35,16 +35,19 @@ struct ContentView: View {
             Group{
                 //腳
                 Path(CGRect(x: 197, y: 628, width: 10,
-                            height:46))
+                            height:47))
                     .fill(Color(red: 244/255, green: 191/255, blue: 217/255))
                 Path(CGRect(x: 304, y: 628, width: 10,
                             height:46))
                     .fill(Color(red: 244/255, green: 191/255, blue: 217/255))
                 //鞋
-                PeppaEllipseView(pos_x: 173, pos_y: 676, width: 51, height: 16)
-                PeppaEllipseView(pos_x: 197, pos_y: 677, width: 26, height: 13)
-                PeppaEllipseView(pos_x: 278, pos_y: 676, width: 51, height: 16)
-                PeppaEllipseView(pos_x: 305, pos_y: 677, width: 26, height: 13)
+                PeppaShoes()
+                .fill(Color(red: 35/255, green:31/255, blue: 32/255))
+                    .offset(x:-1,y:0)
+                PeppaShoes()
+                .fill(Color(red: 35/255, green:31/255, blue: 32/255))
+                    .position(x:313,y:447)
+               
             }
             
             //手
@@ -77,7 +80,7 @@ struct ContentView: View {
             PeppaCloth()
                 .fill(Color(red: 242/255, green: 99/255, blue: 93/255))
             PeppaHeadView()
-            Text("Peter，我們打球，你當球！")
+            Text("我們打球，你當球！")
                 .font(.title)
                 .fontWeight(.medium)
                 .multilineTextAlignment(.center)
@@ -147,9 +150,9 @@ struct PeppaEllipseView: View {
     var rotate: Double=0
     var width: CGFloat
     var height: CGFloat
-    var red: Double=35
-    var green: Double=31
-    var blue: Double=32
+    var red: Double
+    var green: Double
+    var blue: Double
     var body: some View {
         Ellipse()
             .fill(Color(red: red/255, green: green/255, blue: blue/255))
@@ -259,6 +262,21 @@ struct PeppaCloth:Shape{
             path.addQuadCurve(to: CGPoint(x:122, y:624), control: CGPoint(x: 110, y:623))
             path.addQuadCurve(to: CGPoint(x:370, y:624), control: CGPoint(x: 115, y:624))
             path.addQuadCurve(to: CGPoint(x:320, y:469), control: CGPoint(x: 350, y:471))
+        }
+    }
+}
+
+struct PeppaShoes:Shape{
+    func path(in rect: CGRect) -> Path {
+        Path{ (path) in
+            path.move(to: CGPoint(x: 147, y: 676))
+            path.addQuadCurve(to: CGPoint(x:172, y:669), control: CGPoint(x: 150, y:667))
+            path.addQuadCurve(to: CGPoint(x:208, y:675), control: CGPoint(x: 192, y:671))
+            path.addQuadCurve(to: CGPoint(x:203, y:682), control: CGPoint(x: 212, y:680))
+            path.addQuadCurve(to: CGPoint(x:155, y:684), control: CGPoint(x: 170, y:687))
+            path.addQuadCurve(to: CGPoint(x:147, y:677), control: CGPoint(x: 147, y:683))
+            path.closeSubpath()
+           
         }
     }
 }
