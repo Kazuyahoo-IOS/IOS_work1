@@ -59,7 +59,7 @@ struct ContentView: View {
                     .rotationEffect(.degrees(20))
                 //球
                 Group{
-                    PeppaCircleView(pos_x: 67, pos_y: 439, circle: 140, red: 0, green: 0)
+                    PeppaCircleView(pos_x: 67, pos_y: 439, circle: 140, red: 244, green: 243, blue:117)
                     PeppaCircleView(pos_x: 20, pos_y: 409, circle: 20)
                     PeppaCircleView(pos_x: 42, pos_y: 387, circle: 20)
                     PeppaCircleView(pos_x: 50, pos_y: 417, circle: 20)
@@ -80,11 +80,11 @@ struct ContentView: View {
             PeppaCloth()
                 .fill(Color(red: 242/255, green: 99/255, blue: 93/255))
             PeppaHeadView()
-            Text("我們打球，你當球！")
-                .font(.title)
-                .fontWeight(.medium)
+            Text("Peter\n我們打球  你當球!")
+                .font(.largeTitle)
+                .fontWeight(.heavy)
                 .multilineTextAlignment(.center)
-                .position(x:220,y:155)
+                .position(x:220,y:135)
             
         }
         .background(Image("background")
