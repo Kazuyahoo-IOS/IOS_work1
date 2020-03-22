@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack{
+            //陰影
+            PeppaEllipseView(pos_x:235, pos_y: 675, width: 277, height: 36, red: 128, green: 162, blue: 129)
+                
             //尾巴
             Group{
                 PeppaCircleView(pos_x: 389, pos_y: 569, circle: 26, red: 244, green: 191, blue:217)
@@ -197,12 +200,11 @@ struct PeppaHeadView: View {
             }
             //嘴巴
             Path{ (path) in
-                path.move(to: CGPoint(x: 178, y: 390))
+                path.move(to: CGPoint(x: 178, y: 391))
                 path.addQuadCurve(to: CGPoint(x:213, y:430), control: CGPoint(x: 178, y:420))
-                path.addQuadCurve(to: CGPoint(x:258, y:410), control: CGPoint(x: 248, y:435))
-            }
-            .stroke(lineWidth:8)
-            .fill(Color(red: 231/255, green: 85/255, blue: 147/255))
+                path.addQuadCurve(to: CGPoint(x:256, y:414), control: CGPoint(x: 241, y:434))
+            }//231 85 147
+            .stroke(Color(red: 231/255, green: 85/255, blue: 147/255),style:StrokeStyle(lineWidth:8, lineCap:.round))
             //腮紅
             PeppaEllipseView(pos_x:305, pos_y: 385, rotate: 30, width: 55, height: 64, red: 243, green: 161, blue: 197)
             //鼻子
@@ -257,11 +259,12 @@ struct PeppaFace:Shape{
 struct PeppaCloth:Shape{
     func path(in rect: CGRect) -> Path {
         Path{ (path) in
-            path.move(to: CGPoint(x: 172, y: 460))
-            path.addQuadCurve(to: CGPoint(x:150, y:500), control: CGPoint(x: 152, y:493))
-            path.addQuadCurve(to: CGPoint(x:122, y:624), control: CGPoint(x: 110, y:623))
-            path.addQuadCurve(to: CGPoint(x:370, y:624), control: CGPoint(x: 115, y:624))
-            path.addQuadCurve(to: CGPoint(x:320, y:469), control: CGPoint(x: 350, y:471))
+            path.move(to: CGPoint(x: 172, y: 461))
+            path.addQuadCurve(to: CGPoint(x:144, y:511), control: CGPoint(x: 157, y:477))
+            path.addQuadCurve(to: CGPoint(x:121, y:622), control: CGPoint(x: 127, y:562))
+            path.addQuadCurve(to: CGPoint(x:368, y:624), control: CGPoint(x: 115, y:624))
+            path.addQuadCurve(to: CGPoint(x:368, y:611), control: CGPoint(x: 370, y:624))
+            path.addQuadCurve(to: CGPoint(x:322, y:466), control: CGPoint(x: 359, y:520))
         }
     }
 }
